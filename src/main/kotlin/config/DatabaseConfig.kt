@@ -63,11 +63,19 @@ object DatabaseConfig {
     }
     
     fun init() {
+        val dbHost = System.getenv("DB_HOST") ?: "localhost"
+        val dbPort = System.getenv("DB_PORT") ?: "5432"
+        val dbName = System.getenv("DB_NAME") ?: "clark_wright"
+        val dbUser = System.getenv("DB_USER") ?: "postgres"
+        val dbPassword = System.getenv("DB_PASSWORD") ?: "postgres"
+
+        println("Conectando ao banco de dados: jdbc:postgresql://$dbHost:$dbPort/$dbName")
+        
         val config = HikariConfig().apply {
-            jdbcUrl = "jdbc:postgresql://localhost:5430/clark_wright"
+            jdbcUrl = "jdbc:postgresql://$dbHost:$dbPort/$dbName"
             driverClassName = "org.postgresql.Driver"
-            username = "postgres"
-            password = "postgres"
+            username = dbUser
+            password = dbPassword
             maximumPoolSize = 10
         }
         
