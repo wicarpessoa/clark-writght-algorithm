@@ -2,4 +2,7 @@ package domain.entities
 import kotlinx.serialization.Serializable
 
 @Serializable
-class Distributor( val position: Position)
+data class Distributor(
+    val position: Position,
+    val id: Int? = null
+)

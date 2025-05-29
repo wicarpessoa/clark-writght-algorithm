@@ -20,7 +20,7 @@ class CustomerService(
         return repository.findById(id)
     }
 
-    fun update(id: Int, newX: Int, newY: Int): Boolean {
+    fun update(id: Int, newX: Double, newY: Double): Boolean {
         val customer = repository.findById(id) ?: return false
         val updated = Customer(id, Position(newX, newY))
         return repository.update(updated)

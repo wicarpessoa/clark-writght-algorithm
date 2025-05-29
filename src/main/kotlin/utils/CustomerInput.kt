@@ -5,7 +5,7 @@ import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
 @Serializable
-data class CustomerInput(val id: Int, val x: Int, val y: Int)
+data class CustomerInput(val id: Int, val x: Double, val y: Double)
 
 fun parseCustomers(json: String): List<Customer> {
     val inputList = Json.decodeFromString<List<CustomerInput>>(json)

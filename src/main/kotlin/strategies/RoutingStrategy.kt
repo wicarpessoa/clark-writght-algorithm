@@ -1,8 +1,9 @@
 package strategies
 
 import domain.entities.Customer
+import domain.entities.Distributor
 import domain.entities.Route
 
 interface RoutingStrategy {
-    fun solve(customers: List<Customer>): List<Route>
+    fun solve(distributor: Distributor, customers: List<Customer>): List<Route>
 }

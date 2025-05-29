@@ -1,0 +1,35 @@
+{
+  "strategyName": "clarkwright",
+  "distributor": {
+    "position": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "customers": [
+    {
+      "position": {
+        "x": 10,
+        "y": 10
+      }
+    },
+    {
+      "position": {
+        "x": 20,
+        "y": 20
+      }
+    },
+    {
+      "position": {
+        "x": 15,
+        "y": 30
+      }
+    },
+    {
+      "position": {
+        "x": 5,
+        "y": 25
+      }
+    }
+  ]
+} 
