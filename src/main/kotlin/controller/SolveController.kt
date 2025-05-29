@@ -188,7 +188,7 @@ class SolveController : HttpHandler {
     }
     
     private fun setCorsHeaders(exchange: HttpExchange) {
-        exchange.responseHeaders.add("Access-Control-Allow-Origin", "*")
+        exchange.responseHeaders.add("Access-Control-Allow-Origin", "https://clark-wright-algorithm-front-ljfkge6ds-wicar-pessoas-projects.vercel.app")
         exchange.responseHeaders.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         exchange.responseHeaders.add("Access-Control-Allow-Headers", "Content-Type")
     }
