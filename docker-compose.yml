@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clark_wright_app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
   postgres:
     image: postgres:15-alpine
     container_name: clark_wright_db
