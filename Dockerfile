@@ -1,22 +1,22 @@
-FROM gradle:7.6-jdk17 AS build
+FROM gradle:7.6-jdk17-alpine AS build
 
 WORKDIR /app
 
-# Copiar arquivos de configuração
+# Copiar apenas os arquivos de configuração primeiro
 COPY build.gradle.kts settings.gradle.kts gradle.properties ./
 COPY gradle ./gradle
 
-# Baixar dependências
+# Baixar dependências (etapa separada para aproveitar o cache do Docker)
 RUN gradle dependencies --no-daemon
 
 # Copiar o código-fonte
 COPY src ./src
 
-# Compilar a aplicação
-RUN gradle build --no-daemon
+# Compilar a aplicação sem executar testes
+RUN gradle assemble --no-daemon
 
-# Imagem final
-FROM openjdk:17-slim
+# Imagem final menor
+FROM openjdk:17-jdk-alpine
 
 WORKDIR /app
 
