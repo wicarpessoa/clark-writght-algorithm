@@ -1,5 +1,6 @@
 import application.Registry
 import com.sun.net.httpserver.HttpServer
+import config.CorsHandler
 import config.DatabaseConfig
 import controller.SolveController
 import controller.StrategyController
@@ -30,8 +31,8 @@ fun main() {
 
     // Set up HTTP server
     val server = HttpServer.create(InetSocketAddress(8080), 0)
-    server.createContext("/solve", solveController)
-    server.createContext("/strategies", strategyController)
+    server.createContext("/solve", CorsHandler(solveController))
+    server.createContext("/strategies", CorsHandler(strategyController))
 
     server.executor = null
     server.start()
