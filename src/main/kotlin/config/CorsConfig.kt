@@ -12,10 +12,9 @@ class CorsHandler(private val handler: HttpHandler) : HttpHandler {
         println("Headers: ${exchange.requestHeaders}")
 
         // Set CORS headers
-        exchange.responseHeaders.add("Access-Control-Allow-Origin", "http://34.205.72.237")
-        exchange.responseHeaders.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        exchange.responseHeaders.add("Access-Control-Allow-Headers", "Content-Type")
-        exchange.responseHeaders.add("Access-Control-Allow-Credentials", "true")
+        exchange.responseHeaders.add("Access-Control-Allow-Origin", "*")
+        exchange.responseHeaders.add("Access-Control-Allow-Methods", "*")
+        exchange.responseHeaders.add("Access-Control-Allow-Headers", "*")
 
         // Handle preflight requests
         if (method == "OPTIONS") {
